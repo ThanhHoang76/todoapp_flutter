@@ -5,9 +5,9 @@ import '../models/task_model.dart';
 
 
 class DBHelper {
-  static final _databaseName = 'todo.db';
-  static final _tasksTable = 'tasks_table';
-  static final _version = 1;
+  static const _databaseName = 'todo.db';
+  static const _tasksTable = 'tasks_table';
+  static const _version = 1;
   static Database? _database;
 
   Future<Database> get database async {
@@ -54,6 +54,10 @@ class DBHelper {
   Future<int> delete(int id) async {
     Database? db = await DBHelper._database;
     return await db!.delete(_tasksTable, where: 'id = ?', whereArgs: [id]);
+  }
+   static deleteId(Task task) async {
+    Database? db = await DBHelper._database;
+    return await db!.delete(_tasksTable, where: 'id =?', whereArgs:[task.id]);
   }
 
   Future<int> deleteAllTasks() async {

@@ -25,13 +25,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   //ghi chú
   final TextEditingController _noteController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
-  //DateTime _selectedDate = DateFormat("yMMMMd").format(DateTime.now()) as DateTime;
+  //DateTime _selectedDate = DateFormat("yMMMMd").format(DateTime.now());
   String _endTime = "9:30 PM";
   int _selectedRemind = 5;
   List<int> remindList = [5, 10, 15, 20];
 
   String _selectedRepeat = "Không";
-  List<String> repeatList = ["Không", "Hàng Ngày", "Hàng tuần", "Hàng tháng"];
+  List<String> repeatList = ["Không", "Hàng Ngày", "Hàng Tuần", "Hàng Tháng"];
 
   int _selectedColor = 0;
 
@@ -78,7 +78,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               Dimensions.gapH10,
               CustomInputField(
                 title: "Ngày tháng",
-                hint: DateFormat.yMd().format(_selectedDate),
+                hint: DateFormat('dd/MM/yyyy').format(_selectedDate),
                 widget: IconButton(
                   onPressed: () {
                     _getDateFromUser();
@@ -240,7 +240,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     task.note = _noteController.text;
     task.repeat = _selectedRepeat;
     task.remind = _selectedRemind;
-    task.date = _selectedDate.toString();
+    task.date = DateFormat('dd/MM/yyyy').format(_selectedDate);
     task.startTime = _startTime;
     task.endTime = _endTime;
   }
@@ -274,7 +274,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         Dimensions.gapH5,
         Wrap(
           spacing: Dimensions.width5,
-          children: List<Widget>.generate(3, (int index) {
+          children: List<Widget>.generate(2, (int index) {
             return GestureDetector(
               onTap: () {
                 setState(() {
@@ -285,9 +285,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 radius: Dimensions.radius5 * 3.5,
                 backgroundColor: index == 0
                     ? kStickers1
-                    : index == 1
-                        ? kStickers2
-                        : kStickers3,
+                    : kStickers2,
+                        //: kStickers3,
                 child: _selectedColor ==
                         index //Nếu _selectedColor == index thì hiện icon done ngược lại none
                     ? Icon(

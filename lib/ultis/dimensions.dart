@@ -11,6 +11,7 @@ class Dimensions {
   static SizedBox gapH24 = SizedBox(height: height24);
   static SizedBox gapH15 = SizedBox(height: height15);
   static SizedBox gapH10 = SizedBox(height: height10);
+  static SizedBox gapH40 = SizedBox(height: height40);
   static SizedBox gapH5 = SizedBox(height: height5);
   static SizedBox gapW15 = SizedBox(width: width15);
 // dynamic height
@@ -58,7 +59,8 @@ class Dimensions {
   static double font24 = height24;
   static double font1 = height1;
   static double font26 = font1 * 26;
-
+  static double font18 = font1 * 18;
+  static double font13 = height1*13;
   static double radius20 = height20;
   static double radius30 = height30;
   static double radius5 = height10 / 2;
