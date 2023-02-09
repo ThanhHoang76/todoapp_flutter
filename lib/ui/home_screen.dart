@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
               Task task = _taskController.taskList[index];
               var date = DateFormat.jm().parse(task.startTime!);
               var myTime = DateFormat('HH:mm').format(date);
-              handlingReminder(task.remind!, myTime, task);
+             // handlingReminder(task.remind!, myTime, task);
               print(task.toMap());
               if(task.repeat == 'Hàng Ngày' ||
                   task.date == DateFormat('dd/MM/yyyy').format(_selectedDate) ||
@@ -339,7 +339,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  handlingReminder(int reminder, var myTime, Task task) {
+ /* handlingReminder(int reminder, var myTime, Task task) {
     var minutes = int.parse(myTime.toString().split(':')[1]);
     var hours = int.parse(myTime.toString().split(':')[0]);
     if (reminder == 5) {
@@ -355,5 +355,5 @@ class _HomePageState extends State<HomePage> {
       notifyHelper.scheduledNotification(minutes < 20 ? hours - 1 : hours,
           minutes < 20 ? minutes + 40 : minutes - 20, task);
     }
-  }
+  }*/
 }
